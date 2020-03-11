@@ -41,7 +41,7 @@ Input text sin clase
 
 ## textarea
 
-#Live Templates para HTML
+# Live Templates para HTML
 ## buscador
 
 ## ftable
@@ -61,7 +61,7 @@ Agrega `class="req"`
 ## sep
 Agrega una fila de tabla con clase `separador` y `colspan=0`
 
-##tabla
+## tabla
 Lo mismo que `nsortable`
 
 ## tn
