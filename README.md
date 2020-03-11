@@ -1,5 +1,5 @@
 # adi_live_templates
-#Instalacion en PhpStorm
+# Instalacion en PhpStorm
 
 1. Abrir PhpStorm Preferences (o Settings) | Tools | Settings Repository
 2. Agregar a Read-only Source la URL del repositorio <https://github.com/milenkotomic/adi_live_templates/>
@@ -9,10 +9,10 @@
 ## ninc
 Crea una nueva clase con los metodos get y upd con la estructura habitual
 
-##nweb
+## nweb
 Código base de un archivo web con la inclusion del config y el llamado a KERNEL::render
 
-#Inyección de funciones de HTML lib 
+# Inyección de funciones de HTML lib 
 ## ajaxcompletar
 
 ## calendario
