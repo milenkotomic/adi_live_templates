@@ -1,0 +1,125 @@
+<templateSet group="sys21">
+  <template name="nweb" value="require_once( 'config.php' );&#10;&#10;$END$&#10;&#10;&#10;$nav = [];&#10;include( KERNEL::render( $nav, [] ) );&#10;" description="New web file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="ninc" value="class $className${&#10;    static public function get($id = NULL){&#10;        $link = KERNEL::db();&#10;&#10;        if( $id ) $ids = array_map( 'intval', is_array( $id ) ? $id : [$id] );&#10;&#10;        $sql = &quot;&#10;select *&#10;from $className$&#10;where 1=1        &#10;        &quot;;&#10;&#10;        if( $id ) $sql .= &quot;&#10;and FOR_ID in (&quot;.implode( &quot;, &quot;, $ids ).&quot;)&quot;;&#10;&#10;        $query = $link-&gt;query( $sql );&#10;        if( DB::isError( $query ) ) KERNEL::error( ERR_SQL, $sql, 'Error al obtener las $objectName$' );&#10;&#10;        $res = [];&#10;        while( $row = $query-&gt;fetchRow() ) {&#10;            $res[$row['id']] = $row;&#10;        }&#10;&#10;        return $id &amp;&amp; !is_array( $id ) ? $res[$id] : $res;&#10;    }&#10;&#10;    static public function upd( $object ) {&#10;        $link = KERNEL::db();&#10;&#10;        $id = $object['id'] ? (int)$object['id'] : 'NULL';&#10;&#10;        $sql = &quot;&#10;insert into &#10;values ( )&#10;on duplicate key update&#10;FOR_ID_CARRERA = values( FOR_ID_CARRERA ),&#10;&quot;;&#10;&#10;        $query = $link-&gt;query( $sql );&#10;        if( DB::isError( $query ) ) KERNEL::error( ERR_SQL, $sql, 'Error al guardar la $objectName$' );&#10;&#10;        return $object['id'] ? $object['id'] : mysqli_insert_id( $link-&gt;connection );&#10;    }&#10;&#10;}" description="New Include Class" toReformat="true" toShortenFQNames="true">
+    <variable name="className" expression="capitalize(String)" defaultValue="" alwaysStopAt="true" />
+    <variable name="objectName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="buscador" value="&lt;form class=&quot;buscar&quot; action=&quot;buscar&quot;&gt;&#10;&#9;&lt;input type=&quot;hidden&quot; name=&quot;accion&quot; value=&quot;buscar&quot; /&gt;&#10;&#9;$END$&#10;&#9;&lt;input type=&quot;submit&quot; value=&quot;Buscar&quot; /&gt;&#10;&lt;/form&gt;" description="Buscador" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="inctem" value="&lt;!-- include( template( '../template/$END$.html' ) ); --&gt;" description="Incluir template" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="nsortable" value="&lt;table class=&quot;sortable search sticky&quot;&gt;&#10;&#10;&lt;thead&gt;&#10;&lt;tr&gt;&#10;    &lt;th class=&quot;number&quot;&gt;N°&lt;/th&gt;&#10;    &lt;th class=&quot;string&quot;&gt;^Estado^&lt;/th&gt;&#10;&lt;/tr&gt;&#10;&lt;/thead&gt;&#10;&#10;&lt;tbody&gt;&#10;&lt;!-- if( !empty( ) ){ --&gt;&#10;&lt;tr&gt;&lt;td colspan=&quot;0&quot;&gt;^No hay nada que mostrar^&lt;/td&gt;&lt;/tr&gt;&#10;&lt;!-- } else{ --&gt;&#10;    &lt;!-- foreach( $ofertas as $id =&gt; $oferta ){ --&gt;&#10;&#10;&lt;tr&gt;&#10;    &lt;td&gt;{++$cont}&lt;/td&gt;&#10;    &lt;td&gt;Estado&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&#10;    &lt;!-- } --&gt;&#10;&lt;!-- } --&gt;&#10;&lt;/tbody&gt;&#10;&lt;/table&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="tabs" value="{HTML::tabs( $menu, '$END$' )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="textarea" value="{HTML::textarea('$END$')}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="checkbox" value="{HTML::checkbox('$END$', $values, $default, '&lt;br&gt;')}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="file" value="{HTML::file( '$END$' )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ftable" value="&lt;form method=&quot;post&quot;&gt;&#10;&lt;table class=&quot;form&quot;&gt;&#10;&lt;tbody&gt;&#10;&#10;    &lt;tr class=&quot;separador&quot;&gt;&#10;    &lt;td colspan=&quot;2&quot;&gt;^$END$^&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&lt;tr class=&quot;&quot;&gt;&#10;    &lt;th&gt;^^&lt;/th&gt;&#10;    &lt;td&gt;&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&lt;/tbody&gt;&#10;&lt;/table&gt;&#10;&lt;input type=&quot;hidden&quot; name=&quot;accion&quot; value=&quot;&quot;/&gt;&#10;&lt;input type=&quot;submit&quot; value=&quot;Enviar&quot;/&gt;&#10;&lt;/form&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="tabla" value="&lt;table class=&quot;sortable search sticky&quot;&gt;&#10;$END$&#10;&lt;thead&gt;&#10;&lt;tr&gt;&#10;    &lt;th class=&quot;number&quot;&gt;N°&lt;/th&gt;&#10;    &lt;th class=&quot;string&quot;&gt;^Estado^&lt;/th&gt;&#10;&lt;/tr&gt;&#10;&lt;/thead&gt;&#10;&#10;&lt;tbody&gt;&#10;&lt;!-- if( !empty( $iterable ) ){ --&gt;&#10;&lt;tr&gt;&lt;td colspan=&quot;0&quot;&gt;^No hay nada que mostrar^&lt;/td&gt;&lt;/tr&gt;&#10;&lt;!-- } else{ --&gt;&#10;    &lt;!-- foreach( $iterable as $id =&gt; $object ){ --&gt;&#10;&#10;&lt;tr&gt;&#10;    &lt;td&gt;{++$cont}&lt;/td&gt;&#10;    &lt;td&gt;Estado&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&#10;    &lt;!-- } --&gt;&#10;&lt;!-- } --&gt;&#10;&lt;/tbody&gt;&#10;&#10;&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ts" value="&lt;th class=&quot;string&quot;&gt;^$END$^&lt;/th&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="tn" value="&lt;th class=&quot;number&quot;&gt;^$END$^&lt;/th&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="select" value="{HTML::select( '$END$', $valores , $defecto, $onchange, $id )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="text" value="{HTML::text( '$END$', $valor , $placeholder )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="calendario" value="{HTML::calendario( '$END$', $defecto , $onchange )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="persona" value="&lt;div class=&quot;objeto&quot;&gt;&#10;    &lt;h1&gt;{$persona['foto']}{$persona['nombre_completo']}{$persona['switch']}&lt;/h1&gt;&#10;    &lt;h2&gt;{$persona['rut_dv']}&lt;/h2&gt;&#10;&lt;/div&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="trf" value="&lt;tr&gt;&#10;    &lt;th class=&quot;string&quot;&gt;^$END$^&lt;/th&gt;&#10;    &lt;td&gt;{HTML::text( '', $valor , $placeholder ) }&lt;/td&gt;&#10;&lt;/tr&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="req" value="class=&quot;req&quot;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="HTML_TEXT" value="false" />
+    </context>
+  </template>
+  <template name="sep" value="&lt;tr class=&quot;separador&quot;&gt;&#10;    &lt;td colspan=&quot;0&quot;&gt;^$END$^&lt;/td&gt;&#10;&lt;/tr&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="trq" value="&lt;tr class=&quot;req&quot;&gt; &#10;    &lt;th class=&quot;string&quot;&gt;^$END$^&lt;/th&gt;&#10;    &lt;td&gt;{HTML::text( '', $valor , $placeholder ) }&lt;/td&gt;&#10;&lt;/tr&gt;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ajaxcompletar" value="{HTML::ajaxCompletar( '$END$', $fuente, $default, $placeholder )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="numero" value="{HTML::text( '', $valor , '', 20, '', '', 'numero' )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="rut" value="{HTML::text( '', $valor , '', 20, '', '', 'rut' )}" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+</templateSet>
