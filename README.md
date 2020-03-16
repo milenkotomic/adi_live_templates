@@ -44,8 +44,17 @@ Input text sin clase
 # Live Templates para HTML
 ## buscador
 
+## da
+```HTML
+<a class="file pdf" href="" target="">Nombre Archivo</a><em>Tamaño</em>
+```
+
 ## ftable
 Formulario estilo tabla con dos columnas, nombre del campo y campo
+
+## h1
+
+## h2
 
 ## nsortable
 Tabla para desplagar elementos, inlcuye sortable, search y sticky.
@@ -81,3 +90,17 @@ Igual que `trf` incluyendo el `class="req"` al `tr`
 
 ## ts
 Agrega una cabezera de tabla con clase `string`
+
+## ttr
+Agrega una fila de tabla con `th` y `td`
+
+# Live Templates para PHP
+
+## les
+```PHP
+$link->escapeSimple( );
+```
+
+## odk
+Dado el nombre de un campo de la base de datos, entrega el string que forma parte de `on duplicate key update`. Por ejemplo: 
+`PERS_ID` se transforma en `$SELECTION$ = values( $SELECTION$ )`

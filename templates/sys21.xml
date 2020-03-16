@@ -21,7 +21,7 @@
       <option name="HTML_TEXT" value="true" />
     </context>
   </template>
-  <template name="nsortable" value="&lt;table class=&quot;sortable search sticky&quot;&gt;&#10;&lt;thead&gt;&#10;&lt;tr&gt;&#10;    &lt;th class=&quot;number&quot;&gt;N°&lt;/th&gt;&#10;    $END$&#10;    &lt;th class=&quot;string&quot;&gt;^Estado^&lt;/th&gt;&#10;&lt;/tr&gt;&#10;&lt;/thead&gt;&#10;&#10;&lt;tbody&gt;&#10;&lt;!-- if( !empty( $iterable ) ){ --&gt;&#10;&lt;tr&gt;&lt;td colspan=&quot;0&quot;&gt;^No hay nada que mostrar^&lt;/td&gt;&lt;/tr&gt;&#10;&lt;!-- } else{ --&gt;&#10;    &lt;!-- foreach( $iterable as $id =&gt; $object ){ --&gt;&#10;&#10;&lt;tr&gt;&#10;    &lt;td&gt;{++$cont}&lt;/td&gt;&#10;    &lt;td&gt;Estado&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&#10;    &lt;!-- } --&gt;&#10;&lt;!-- } --&gt;&#10;&lt;/tbody&gt;&#10;&#10;&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
+  <template name="nsortable" value="&lt;table class=&quot;sortable search sticky&quot;&gt;&#10;&lt;thead&gt;&#10;&lt;tr&gt;&#10;    &lt;th class=&quot;number&quot;&gt;N°&lt;/th&gt;&#10;    $END$&#10;    &lt;th class=&quot;string&quot;&gt;^Estado^&lt;/th&gt;&#10;&lt;/tr&gt;&#10;&lt;/thead&gt;&#10;&#10;&lt;tbody&gt;&#10;&lt;!-- if( empty( $iterable ) ){ --&gt;&#10;&lt;tr&gt;&lt;td colspan=&quot;0&quot;&gt;^No hay nada que mostrar^&lt;/td&gt;&lt;/tr&gt;&#10;&lt;!-- } else{ --&gt;&#10;    &lt;!-- foreach( $iterable as $id =&gt; $object ){ --&gt;&#10;&#10;&lt;tr&gt;&#10;    &lt;td&gt;{++$cont}&lt;/td&gt;&#10;    &lt;td&gt;Estado&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&#10;    &lt;!-- } --&gt;&#10;&lt;!-- } --&gt;&#10;&lt;/tbody&gt;&#10;&#10;&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="true" />
     </context>
@@ -31,7 +31,7 @@
       <option name="HTML_TEXT" value="true" />
     </context>
   </template>
-  <template name="textarea" value="{HTML::textarea('$END$')}" description="" toReformat="true" toShortenFQNames="true">
+  <template name="textarea" value="{HTML::textarea( '$END$', $value, $placeholder )}" description="" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="true" />
     </context>
@@ -51,7 +51,7 @@
       <option name="HTML_TEXT" value="true" />
     </context>
   </template>
-  <template name="tabla" value="&lt;table class=&quot;sortable search sticky&quot;&gt;&#10;&lt;thead&gt;&#10;&lt;tr&gt;&#10;    &lt;th class=&quot;number&quot;&gt;N°&lt;/th&gt;&#10;    $END$&#10;    &lt;th class=&quot;string&quot;&gt;^Estado^&lt;/th&gt;&#10;&lt;/tr&gt;&#10;&lt;/thead&gt;&#10;&#10;&lt;tbody&gt;&#10;&lt;!-- if( !empty( $iterable ) ){ --&gt;&#10;&lt;tr&gt;&lt;td colspan=&quot;0&quot;&gt;^No hay nada que mostrar^&lt;/td&gt;&lt;/tr&gt;&#10;&lt;!-- } else{ --&gt;&#10;    &lt;!-- foreach( $iterable as $id =&gt; $object ){ --&gt;&#10;&#10;&lt;tr&gt;&#10;    &lt;td&gt;{++$cont}&lt;/td&gt;&#10;    &lt;td&gt;Estado&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&#10;    &lt;!-- } --&gt;&#10;&lt;!-- } --&gt;&#10;&lt;/tbody&gt;&#10;&#10;&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
+  <template name="tabla" value="&lt;h1&gt;^$END$^&lt;/h1&gt;&#10;&lt;table&gt;&#10;&lt;tbody&gt;&#10;&lt;tr&gt;&#10;    &lt;td&gt;^^&lt;/td&gt;&#10;    &lt;td&gt;&lt;/td&gt;&#10;&lt;/tr&gt;&#10;&lt;/tbody&gt;&#10;&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="true" />
     </context>
@@ -120,6 +120,36 @@
   <template name="rut" value="{HTML::text( '', $valor , '', 20, '', '', 'rut' )}" description="" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="ttr" value="&lt;tr&gt;&#10;    &lt;th&gt;^$END$^&lt;/th&gt;&#10;    &lt;td&gt;&lt;/td&gt;&#10;&lt;/tr&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="h2" value="&lt;h2&gt;^$END$^&lt;/h2&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="h1" value="&lt;h1&gt;^$END$^&lt;/h1&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="da" value="&lt;a class=&quot;file pdf&quot; href=&quot;$END$&quot; target=&quot;&quot;&gt;Nombre Archivo&lt;/a&gt;&lt;em&gt;Tamaño&lt;/em&gt;" description="" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="odk" value="$SELECTION$ = values( $SELECTION$ )" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="SQL" value="true" />
+    </context>
+  </template>
+  <template name="les" value="$link-&gt;escapeSimple( $END$ );" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP Expression" value="true" />
     </context>
   </template>
 </templateSet>
