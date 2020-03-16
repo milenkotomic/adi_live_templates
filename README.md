@@ -1,9 +1,10 @@
-# adi_live_templates
 # Instalacion en PhpStorm
 
 1. Abrir PhpStorm Preferences (o Settings) | Tools | Settings Repository
 2. Agregar a Read-only Source la URL del repositorio <https://github.com/milenkotomic/adi_live_templates/>
 3. Reiniciar PhpStorm
+
+Para más info: <https://www.jetbrains.com/help/phpstorm/using-live-templates.html>
 
 # Live Templates para PHP 
 ## ninc
@@ -103,4 +104,4 @@ $link->escapeSimple( );
 
 ## odk
 Dado el nombre de un campo de la base de datos, entrega el string que forma parte de `on duplicate key update`. Por ejemplo: 
-`PERS_ID` se transforma en `$SELECTION$ = values( $SELECTION$ )`
+`PERS_ID` se transforma en `PERS_ID = values( PERS_ID )`
